@@ -9,5 +9,6 @@ import java.time.LocalDate;
 @Repository
 public interface DatesRepo extends JpaRepository<Dates, Long> {
 
-    Dates findByDate (LocalDate date);
+    Dates findByDate(String date);
+    boolean existsDatesByDate(LocalDate date);
 }

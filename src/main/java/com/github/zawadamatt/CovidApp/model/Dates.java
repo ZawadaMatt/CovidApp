@@ -9,6 +9,9 @@ import java.util.Set;
 public class Dates {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
     private LocalDate date;
     @OneToMany(mappedBy = "dates")
     private Set<County> countySet = new HashSet<>();

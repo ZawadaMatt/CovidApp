@@ -14,54 +14,38 @@ public class County {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    @CsvBindByPosition(position = 0)
     private String province;
     @Column
-    @CsvBindByPosition(position = 1)
     private String county;
     @Column(name = "case_count")
-    @CsvBindByPosition(position = 2)
     private int caseCount;
     @Column(name = "case_per_10k")
-    @CsvBindByPosition(position = 3)
     private float casePer10k;
     @Column
-    @CsvBindByPosition(position = 4)
     private int deaths;
     @Column(name = "only_covid_deaths")
-    @CsvBindByPosition(position = 5)
     private int onlyCovidDeaths;
-    @CsvBindByPosition(position = 6)
     @Column(name = "deaths_covid_and_common")
     private int deathsCovidAndCommon;
-    @CsvBindByPosition(position = 7)
     @Column(name = "commissioning_POZ")
     private int commissioningPOZ;
-    @CsvBindByPosition(position = 8)
     @Column
     private int recovered;
-    @CsvBindByPosition(position = 9)
     @Column(name = "involved_in_quarantine")
     private int involvedInQuarantine;
-    @CsvBindByPosition(position = 10)
     @Column(name = "tests_count")
     private int testsCount;
-    @CsvBindByPosition(position = 11)
     @Column(name = "positive_tests")
     private int positiveTests;
-    @CsvBindByPosition(position = 12)
     @Column(name = "negative_tests")
     private int negativeTests;
-    @CsvBindByPosition(position = 13)
     @Column(name = "other_tests")
     private int otherTests;
-    @CsvBindByPosition(position = 14)
     @Column
     private String territory;
-    @CsvBindByPosition(position = 15)
     @Column(name = "actual_date")
     private String actualDate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Dates dates;
 
     public County() {
