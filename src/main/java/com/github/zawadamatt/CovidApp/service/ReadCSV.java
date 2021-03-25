@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 @Service
 public class ReadCSV {
 
-    private DatesRepo datesRepo;
-    private CountyRepo countyRepo;
+    private final DatesRepo datesRepo;
+    private final CountyRepo countyRepo;
 
     @Autowired
     public ReadCSV(DatesRepo datesRepo, CountyRepo countyRepo) {
