@@ -250,7 +250,7 @@
               <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                    <h4 class="card-title">Doughnut chart</h4>
+                    <h4 class="card-title">Podział zgonów: </h4>
                     <canvas id="doughnutChart" style="height: 231px; display: block; width: 462px;" width="462" height="231" class="chartjs-render-monitor"></canvas>
                   </div>
                 </div>
@@ -291,6 +291,8 @@
         /* variable used by index.js */
         var date = [[${dates}]];
         var chartdataes = [[${dataToChart}]];
+        var actualTestPos = [[${actualWholeCountry.getOnlyCovidDeaths}]];
+        var actualTestNegat = [[${actualWholeCountry.getDeathsCovidAndCommon}]];
       </script>
       <script type="text/javascript" th:src="@{/assets/js/chart1.js}">
       </script>
