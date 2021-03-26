@@ -8,6 +8,7 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class ReadCSV {
         return null;
     }
 
+    @Transactional
     public void readResponse(HttpURLConnection connection) {
         try {
             BufferedReader in = new BufferedReader(

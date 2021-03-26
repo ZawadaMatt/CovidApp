@@ -196,7 +196,7 @@
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
                           <h3 class="mb-0" th:text="${actualWholeCountry.testsCount}"></h3>
-                          <p th:if="${percentComparedYesterdayTestsWholeCountry} < 0" class="text-danger ml-2 mb-0 font-weight-medium" th:text="'+' + ${percentComparedYesterdayTestsWholeCountry} + '%'"></p>
+                          <p th:if="${percentComparedYesterdayTestsWholeCountry} < 0" class="text-success ml-2 mb-0 font-weight-medium" th:text="'+' + ${percentComparedYesterdayTestsWholeCountry} + '%'"></p>
                           <p th:if="${percentComparedYesterdayTestsWholeCountry} > 0" class="text-success ml-2 mb-0 font-weight-medium" th:text="${percentComparedYesterdayTestsWholeCountry} + '%'"></p>
                         </div>
                       </div>
@@ -213,7 +213,50 @@
                   </div>
                 </div>
               </div>
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="d-flex align-items-center align-self-start">
+                                        <h3 class="mb-0" th:text="${actualWholeCountry.recovered}"></h3>
+                                        <p th:if="${percentComparedYesterdayRecoveredWholeCountry} < 0" class="text-success ml-2 mb-0 font-weight-medium" th:text="'+' + ${percentComparedYesterdayRecoveredWholeCountry} + '%'"></p>
+                                        <p th:if="${percentComparedYesterdayRecoveredWholeCountry} > 0" class="text-success ml-2 mb-0 font-weight-medium" th:text="${percentComparedYesterdayRecoveredWholeCountry} + '%'"></p>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div th:if="${percentComparedYesterdayRecoveredWholeCountry} < 0" class="icon icon-box-danger">
+                                        <span class="mdi mdi-arrow-bottom-right"></span>
+                                    </div>
+                                    <div th:if="${percentComparedYesterdayRecoveredWholeCountry} > 0" class="icon icon-box-success">
+                                        <span class="mdi mdi-arrow-top-right icon-item"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">Wyzdrowiałych</h6>
+                        </div>
+                    </div>
+                </div>
           </div>
+            <div class="row">
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <h4 class="card-title">Wykres dziennych zakażeń</h4>
+                    <canvas id="areaChart" style="height: 231px; display: block; width: 462px;" width="462" height="231" class="chartjs-render-monitor"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <h4 class="card-title">Doughnut chart</h4>
+                    <canvas id="doughnutChart" style="height: 231px; display: block; width: 462px;" width="462" height="231" class="chartjs-render-monitor"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
@@ -230,18 +273,28 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+      <script src="assets/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../../assets/js/off-canvas.js"></script>
-    <script src="../../assets/js/hoverable-collapse.js"></script>
-    <script src="../../assets/js/misc.js"></script>
-    <script src="../../assets/js/settings.js"></script>
-    <script src="../../assets/js/todolist.js"></script>
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+
     <!-- endinject -->
     <!-- Custom js for this page -->
+      <script th:inline="javascript">
+        /* variable used by index.js */
+        var date = [[${dates}]];
+        var chartdataes = [[${dataToChart}]];
+      </script>
+      <script type="text/javascript" th:src="@{/assets/js/chart1.js}">
+      </script>
     <!-- End custom js for this page -->
+    </div>
   </body>
 </html>

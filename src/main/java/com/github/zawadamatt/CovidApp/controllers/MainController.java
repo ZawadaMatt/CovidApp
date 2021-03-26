@@ -40,6 +40,9 @@ public class MainController {
         model.addAttribute("percentWholeCountryToYesterday", typicalServ.percentComparedYesterdayWholeCountry());
         model.addAttribute("percentComparedYesterdayDeathsWholeCountry", typicalServ.percentComparedYesterdayDeathsWholeCountry());
         model.addAttribute("percentComparedYesterdayTestsWholeCountry", typicalServ.percentComparedYesterdayTestWholeCountry());
+        model.addAttribute("percentComparedYesterdayRecoveredWholeCountry", typicalServ.percentComparedYesterdayRecoveredWholeCountry());
+        model.addAttribute("dates", typicalServ.dataToChartDate());
+        model.addAttribute("dataToChart", typicalServ.dataToChart());
         return "index.html";
     }
 }
